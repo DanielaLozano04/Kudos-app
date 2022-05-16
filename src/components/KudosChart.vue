@@ -1,1 +1,5 @@
-<template>estás?</template>
+<template>
+<div>
+  Hola mundo
+</div>
+</template>
