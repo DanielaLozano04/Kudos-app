@@ -25,7 +25,7 @@
 						<td>
 							<div class="flex flex-row py-3 pl-6 ">
 								<div class="pr-3 w-[40px] h-[40px] grid content-center">
-									<img  src="/imagenes/JPG/Daniel.jpg" alt="Daniel">
+									<img class="rounded-full" src="/imagenes/JPG/Daniel.jpg" alt="Daniel">
 								</div>
 								<div class="grid grid-rows-2">
 									<span class="text-[#111827] font-normal text-sm">Daniel Rubiano</span>
@@ -48,7 +48,7 @@
 						<td>
 							<div class="flex flex-row py-3 pl-6 ">
 								<div class="pr-3 w-[40px] h-[40px] grid content-center">
-									<img  src="/imagenes/JPG/Daniela.jpg" alt="Daniela">
+									<img class="rounded-full" src="/imagenes/JPG/Daniela.jpg" alt="Daniela">
 								</div>
 								<div class="grid grid-rows-2">
 									<span class=" text-[#111827] font-normal text-sm">Daniela Lozano</span>
@@ -71,7 +71,7 @@
 						<td>
 							<div class="flex flex-row py-3 pl-6 ">
 								<div class="pr-3 w-[40px] h-[40px] grid content-center">
-									<img  src="/imagenes/JPG/Emma.jpg" alt="Emma">
+									<img class="rounded-full" src="/imagenes/JPG/Emma.jpg" alt="Emma">
 								</div>
 								<div class="grid grid-rows-2">
 									<span class=" text-[#111827] font-normal text-sm">Emmanuel Deossa</span>
@@ -94,7 +94,7 @@
 						<td>
 							<div class="flex flex-row py-3 pl-6 ">
 								<div class="pr-3 w-[40px] h-[40px] grid content-center">
-									<img  src="/imagenes/JPG/Jairo.jpg" alt="Emma">
+									<img class="rounded-full" src="/imagenes/JPG/Jairo.jpg" alt="Emma">
 								</div>
 								<div class="grid grid-rows-2">
 									<span class=" text-[#111827] font-normal text-sm">Jairo Tulande</span>
@@ -117,7 +117,7 @@
 						<td>
 							<div class="flex flex-row py-3 pl-6 ">
 								<div class="pr-3 w-[40px] h-[40px] grid content-center">
-									<img  src="/imagenes/JPG/Jeisson.jpg" alt="Emma">
+									<img class="rounded-full" src="/imagenes/JPG/Jeisson.jpg" alt="Emma">
 								</div>
 								<div class="grid grid-rows-2">
 									<span class=" text-[#111827] font-normal text-sm">Jeisson Neira</span>
@@ -140,7 +140,7 @@
 						<td>
 							<div class="flex flex-row py-3 pl-6 ">
 								<div class="pr-3 w-[40px] h-[40px] grid content-center">
-									<img  src="/imagenes/JPG/Jesus.jpg" alt="Emma">
+									<img class="rounded-full" src="/imagenes/JPG/Jesus.jpg" alt="Emma">
 								</div>
 								<div class="grid grid-rows-2">
 									<span class=" text-[#111827] font-normal text-sm">Jesús Scarpetta</span>
@@ -163,7 +163,7 @@
 						<td>
 							<div class="flex flex-row py-3 pl-6 ">
 								<div class="pr-3 w-[40px] h-[40px] grid content-center">
-									<img  src="/imagenes/JPG/Juan.jpg" alt="Emma">
+									<img class="rounded-full" src="/imagenes/JPG/Juan.jpg" alt="Emma">
 								</div>
 								<div class="grid grid-rows-2">
 									<span class=" text-[#111827] font-normal text-sm">Juan Torres</span>
@@ -186,7 +186,7 @@
 						<td>
 							<div class="flex flex-row py-3 pl-6 ">
 								<div class="pr-3 w-[40px] h-[40px] grid content-center">
-									<img  src="/imagenes/JPG/Juliette.jpg" alt="Emma">
+									<img class="rounded-full" src="/imagenes/JPG/Juliette.jpg" alt="Emma">
 								</div>
 								<div class="grid grid-rows-2">
 									<span class=" text-[#111827] font-normal text-sm">Juliette Hernandez</span>
@@ -209,7 +209,7 @@
 						<td>
 							<div class="flex flex-row py-3 pl-6 ">
 								<div class="pr-3 w-[40px] h-[40px] grid content-center">
-									<img  src="/imagenes/JPG/Katt.jpg" alt="Emma">
+									<img class="rounded-full" src="/imagenes/JPG/Katt.jpg" alt="Emma">
 								</div>
 								<div class="grid grid-rows-2">
 									<span class=" text-[#111827] font-normal text-sm">Kattia Morales</span>

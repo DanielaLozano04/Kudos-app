@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "@headlessui/vue": "^1.6.1",
-    "vue": "^3.2.25"
+    "chart.js": "^3.7.1",
+    "vue": "^3.2.25",
+    "vue-chartjs": "^4.1.0"
   },
   "devDependencies": {
     "@tailwindcss/line-clamp": "^0.4.0",
