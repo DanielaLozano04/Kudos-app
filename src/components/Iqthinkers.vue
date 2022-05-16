@@ -5,9 +5,9 @@
 			<button class="bg-white text-[10px] font-semibold text-[#6E7C87] rounded-md border border-[#D1D5DB] px-4 py-[4px]"> Add +</button>
 		</div>
 
-		<div class="overflow-hidden rounded-md shadow ring-1 ring-black ring-opacity-5">
-			<table class="w-full divide-y divide-[#D1D5DB] text-left">
-				<thead class="bg-[#F9FAFB]">
+		<div class="overflow-hidden rounded-md shadow ring-1 ring-black ring-opacity-5 h-[25rem] overflow-y-auto">
+			<table class="w-full text-left">
+				<thead class="bg-[#F9FAFB] sticky top-0 shadow">
 					<tr>
 						<th class="text-[#6B7280] text-xs font-medium pl-6 py-3">
 							NAME
@@ -76,6 +76,144 @@
 								<div class="grid grid-rows-2">
 									<span class=" text-[#111827] font-normal text-sm">Emmanuel Deossa</span>
 									<span class=" text-[#6B7280] font-normal text-sm">Lead Developer</span>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="flex py-3 pl-6">
+								<img src="/imagenes/SVG/Heart.svg" alt="Heart">
+								<img src="/imagenes/SVG/Heart.svg" alt="Heart">
+								<img src="/imagenes/SVG/Heart.svg" alt="Heart">
+							</div>
+						</td>
+						<td>
+							<span class="pl-6 py-3 text-[#6B7280] font-normal text-sm" >6 #Kudos</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="flex flex-row py-3 pl-6 ">
+								<div class="pr-3 w-[40px] h-[40px] grid content-center">
+									<img  src="/imagenes/JPG/Jairo.jpg" alt="Emma">
+								</div>
+								<div class="grid grid-rows-2">
+									<span class=" text-[#111827] font-normal text-sm">Jairo Tulande</span>
+									<span class=" text-[#6B7280] font-normal text-sm">Business Development</span>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="flex py-3 pl-6">
+								<img src="/imagenes/SVG/Heart.svg" alt="Heart">
+								<img src="/imagenes/SVG/Heart.svg" alt="Heart">
+								<img src="/imagenes/SVG/Heart.svg" alt="Heart">
+							</div>
+						</td>
+						<td>
+							<span class="pl-6 py-3 text-[#6B7280] font-normal text-sm" >6 #Kudos</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="flex flex-row py-3 pl-6 ">
+								<div class="pr-3 w-[40px] h-[40px] grid content-center">
+									<img  src="/imagenes/JPG/Jeisson.jpg" alt="Emma">
+								</div>
+								<div class="grid grid-rows-2">
+									<span class=" text-[#111827] font-normal text-sm">Jeisson Neira</span>
+									<span class=" text-[#6B7280] font-normal text-sm">The Chief</span>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="flex py-3 pl-6">
+								<img src="/imagenes/SVG/Heart.svg" alt="Heart">
+								<img src="/imagenes/SVG/Heart.svg" alt="Heart">
+								<img src="/imagenes/SVG/Heart.svg" alt="Heart">
+							</div>
+						</td>
+						<td>
+							<span class="pl-6 py-3 text-[#6B7280] font-normal text-sm" >6 #Kudos</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="flex flex-row py-3 pl-6 ">
+								<div class="pr-3 w-[40px] h-[40px] grid content-center">
+									<img  src="/imagenes/JPG/Jesus.jpg" alt="Emma">
+								</div>
+								<div class="grid grid-rows-2">
+									<span class=" text-[#111827] font-normal text-sm">Jesús Scarpetta</span>
+									<span class=" text-[#6B7280] font-normal text-sm">Full-Stack Developer</span>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="flex py-3 pl-6">
+								<img src="/imagenes/SVG/Heart.svg" alt="Heart">
+								<img src="/imagenes/SVG/Heart.svg" alt="Heart">
+								<img src="/imagenes/SVG/Heart.svg" alt="Heart">
+							</div>
+						</td>
+						<td>
+							<span class="pl-6 py-3 text-[#6B7280] font-normal text-sm" >6 #Kudos</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="flex flex-row py-3 pl-6 ">
+								<div class="pr-3 w-[40px] h-[40px] grid content-center">
+									<img  src="/imagenes/JPG/Juan.jpg" alt="Emma">
+								</div>
+								<div class="grid grid-rows-2">
+									<span class=" text-[#111827] font-normal text-sm">Juan Torres</span>
+									<span class=" text-[#6B7280] font-normal text-sm">Lead Designer</span>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="flex py-3 pl-6">
+								<img src="/imagenes/SVG/Heart.svg" alt="Heart">
+								<img src="/imagenes/SVG/Heart.svg" alt="Heart">
+								<img src="/imagenes/SVG/Heart.svg" alt="Heart">
+							</div>
+						</td>
+						<td>
+							<span class="pl-6 py-3 text-[#6B7280] font-normal text-sm" >6 #Kudos</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="flex flex-row py-3 pl-6 ">
+								<div class="pr-3 w-[40px] h-[40px] grid content-center">
+									<img  src="/imagenes/JPG/Juliette.jpg" alt="Emma">
+								</div>
+								<div class="grid grid-rows-2">
+									<span class=" text-[#111827] font-normal text-sm">Juliette Hernandez</span>
+									<span class=" text-[#6B7280] font-normal text-sm">Junior Designer</span>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="flex py-3 pl-6">
+								<img src="/imagenes/SVG/Heart.svg" alt="Heart">
+								<img src="/imagenes/SVG/Heart.svg" alt="Heart">
+								<img src="/imagenes/SVG/Heart.svg" alt="Heart">
+							</div>
+						</td>
+						<td>
+							<span class="pl-6 py-3 text-[#6B7280] font-normal text-sm" >6 #Kudos</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="flex flex-row py-3 pl-6 ">
+								<div class="pr-3 w-[40px] h-[40px] grid content-center">
+									<img  src="/imagenes/JPG/Katt.jpg" alt="Emma">
+								</div>
+								<div class="grid grid-rows-2">
+									<span class=" text-[#111827] font-normal text-sm">Kattia Morales</span>
+									<span class=" text-[#6B7280] font-normal text-sm">Chief Hapiness Officer</span>
 								</div>
 							</div>
 						</td>
