@@ -11,9 +11,9 @@
 <template>
   <Listbox>
       <div class="relative">
-          <ListboxButton class="relative w-full cursor-default rounded-md bg-white py-2 px-3 mb-2 text-left shadow-md focus:outline-none border border-[#D1D5DB] focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
+          <ListboxButton class="relative w-full cursor-default rounded-md bg-white py-2 px-3 text-left shadow-md focus:outline-none border border-[#D1D5DB] focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
           <div class="flex justify-between" ><span>Select Someone</span><img src="/imagenes/SVG/selector.svg" alt=""></div></ListboxButton>
-    <ListboxOptions class="absolute mt-1 px-3 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+    <ListboxOptions class="absolute z-10 w-full px-3 py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
       <ListboxOption>
         <li class="flex items-center py-1">
           <img class="w-[25px] h-[25px] grid content-center ring-white rounded-full mr-2" src="/imagenes/JPG/Daniel.jpg" alt="Daniel">Daniel Rubiano
@@ -41,7 +41,7 @@
       </ListboxOption>
       <ListboxOption>
         <li class="flex items-center py-1">
-          <img class="w-[25px] h-[25px] grid content-center  ring-white rounded-full mr-2" src="/imagenes/JPG/Jesus.jpg" alt="Daniel">Jesús Scarpetta  
+          <img class="w-[25px] h-[25px] grid content-center  ring-white rounded-full mr-2" src="/imagenes/JPG/Jesus.jpg" alt="Daniel">Jesús Scarpetta
         </li>
       </ListboxOption>
       <ListboxOption>
