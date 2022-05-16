@@ -29,7 +29,7 @@
 								</div>
 								<div class="grid grid-rows-2">
 									<span class="text-[#111827] font-normal text-sm">Daniel Rubiano</span>
-									<span class="text-[#6B7280] font-normal text-sm">Video/Audio</span>
+									<span class="text-[#6B7280] font-normal text-sm">Video/Audio Specialist</span>
 								</div>
 							</div>
 						</td>
