@@ -1,9 +1,9 @@
 <script setup>
-import { Bar } from 'vue-chartjs'
-import { Chart as ChartJS, Legend } from 'chart.js'
+// import { Bar } from 'vue-chartjs'
+// import { Chart as ChartJS, Legend } from 'chart.js'
 import useUsers from '../composables/useUsers.js'
 
-ChartJS.register(Legend)
+// ChartJS.register(Legend)
 
 const { users, crearArrayDeUsuarios, crearArrayDeKudos } = useUsers()
 
@@ -22,10 +22,10 @@ const chartOptions = {
 <template>
 <div class="bg-[#F6F8F9] px-6 py-4 ml-8 mr-4 mt-4 mb-4">
 		<div class="flex items-center pb-4 place-content-between">
-			<span class="text-sm text-[#6E7C87] font-semibold uppercase"> 🔥KUDOSCHARTS</span>
+			<span class="text-sm text-[#6E7C87] font-semibold uppercase"> 🔥KUDOS CHARTS</span>
 		</div>
     <section>
-      <Bar :chart-options="chartOptions" :chart-data="chartData" :chart-id="chartId" ></Bar>
+      <!-- <Bar :chart-options="chartOptions" :chart-data="chartData" :chart-id="chartId" ></Bar> -->
     </section>
 </div>
 </template>
