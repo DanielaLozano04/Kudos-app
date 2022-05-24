@@ -12,7 +12,6 @@ import ListBox from '../components/ListBox.vue'
             <span class="text-sm text-[#6E7C87] font-semibold uppercase">From <br> to</span>
             <img src="/imagenes/SVG/Heart-arrow.svg" alt="arrow">
         </div>
-
         <div class="flex flex-col w-[75%]">
             <div class="mb-2">
                 <ListBox/>
@@ -22,6 +21,7 @@ import ListBox from '../components/ListBox.vue'
             </div>
         </div>
     </div>
+    <Input/>
 
     <div id="Badges" class="grid w-full grid-cols-5 gap-2 mt-4">
         <span class="text-sm text-[#6E7C87] font-semibold uppercase">Mentions</span>
