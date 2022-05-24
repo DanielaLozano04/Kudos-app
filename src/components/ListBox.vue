@@ -26,7 +26,7 @@ const { personas } = useUsers()
               {{personaSeleccionada.nombre}}
             </span>
             </div>
-            <img src="/imagenes/SVG/selector.svg" alt="">
+            <img src="/imagenes/SVG/Selector.svg" alt="">
             </div>
             </ListboxButton>
     <ListboxOptions class="absolute z-10 w-full px-3 py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
