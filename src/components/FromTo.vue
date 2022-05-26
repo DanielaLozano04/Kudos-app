@@ -6,7 +6,7 @@ import ListBox from '../components/ListBox.vue'
 </script>
 
 <template>
-<div class="px-6 py-4 mt-4 mb-4 ml-4 mr-8">
+<div class="px-6 py-4 mt-0 mb-4 ml-4 mr-8">
     <div class="flex ">
         <div class="flex w-[25%] justify-between items-center pr-6">
             <span class="text-sm text-[#6E7C87] font-semibold uppercase">From <br> to</span>

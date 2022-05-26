@@ -1,11 +1,11 @@
 <template>
-  <div class="bg-[#F6F8F9] px-6 py-4 ml-8 mr-4 mt-4 mb-4">
+  <div class="bg-[#F6F8F9] px-6 py-4 ml-8 mr-4 mt-6 mb-4">
 		<div class="flex items-center pb-4 place-content-between">
 			<span class="text-sm text-[#6E7C87] font-semibold uppercase"> 🔥 iqthinkers</span>
 			<button class="bg-white text-[10px] font-semibold text-[#6E7C87] rounded-md border border-[#D1D5DB] px-4 py-[4px]"> Add +</button>
 		</div>
 
-		<div class="overflow-hidden rounded-md shadow ring-1 ring-black ring-opacity-5 h-[25rem] overflow-y-auto">
+		<div class="overflow-hidden rounded-md shadow ring-1 ring-black ring-opacity-5 h-[26rem] overflow-y-auto">
 			<table class="w-full text-left">
 				<thead class="bg-[#F9FAFB] sticky top-0 shadow">
 					<tr>

@@ -114,7 +114,7 @@ const plugins = [htmlLegendPlugin]
 </script>
 
 <template>
-<div class="bg-[#F6F8F9] px-6 py-4 ml-8 mr-4 mt-4 mb-4">
+<div class="bg-[#F6F8F9] px-6 py-4 ml-8 mr-4 mt-2 mb-4">
 		<div class="flex items-center pb-4 place-content-between">
 			<span class="text-sm text-[#6E7C87] font-semibold uppercase"> 📊 #kudos CHART</span>
       <span class="text-xs text-gray-500">{{ sumaDeKudosTotales }} TOTAL</span>
