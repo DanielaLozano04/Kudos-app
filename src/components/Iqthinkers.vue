@@ -1,5 +1,6 @@
 <script setup>
 import useUsers from '../composables/useUsers.js'
+import Modal from '../components/Modal.vue'
 
 const { personas } = useUsers()
 </script>
@@ -8,7 +9,10 @@ const { personas } = useUsers()
   <div class="bg-[#F6F8F9] px-6 py-4 ml-8 mr-4 mt-6 mb-4">
 		<div class="flex items-center pb-4 place-content-between">
 			<span class="text-sm text-[#6E7C87] font-semibold uppercase"> 🔥 iqthinkers</span>
-			<button class="bg-white text-[10px] font-semibold text-[#6E7C87] rounded-md border border-[#D1D5DB] px-4 py-[4px]"> Add +</button>
+			<div>
+				<Modal/>
+			</div>
+
 		</div>
 
 		<div class="overflow-hidden rounded-md shadow ring-1 ring-black ring-opacity-5 h-[26rem] overflow-y-auto">
