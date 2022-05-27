@@ -1,31 +1,27 @@
 <script setup>
-import { ref } from 'vue'
+  import { ref } from 'vue'
+  import { Listbox, ListboxButton, ListboxOptions, ListboxOption } from '@headlessui/vue'
+  import useUsers from '../composables/useUsers.js'
 
-  import {
-    Listbox,
-    ListboxButton,
-    ListboxOptions,
-    ListboxOption,
-  } from '@headlessui/vue'
+  const { personas } = useUsers()
 
-import useUsers from '../composables/useUsers.js'
-
-const { personas } = useUsers()
-
-  const personaSeleccionada = ref({ nombre: "Select Someone", imagen: ""})
+  const personaSeleccionada = ref([])
 </script>
 
 <template>
-  <Listbox v-model="personaSeleccionada">
+  <Listbox v-model="personaSeleccionada" multiple>
       <div class="relative">
           <ListboxButton class="relative w-full  cursor-default rounded-md bg-white py-2 px-3 text-left shadow-md focus:outline-none border border-[#D1D5DB] focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm h-11">
           <div class="flex justify-between" >
-            <div class="flex items-center">
-              <img v-show="personaSeleccionada.imagen != ''" class="w-[25px] h-[25px] grid content-center ring-white rounded-full mr-2" :src="personaSeleccionada.imagen" alt="">
-               <span>
-              {{personaSeleccionada.nombre}}
-            </span>
+            <div v-if="personaSeleccionada.length > 0" class="flex space-x-1">
+              <div v-for="(seleccionada, index) in personaSeleccionada" :key="index" class="flex items-center">
+                <img v-show="seleccionada.imagen != ''" class="w-[25px] h-[25px] grid content-center ring-white rounded-full mr-2" :src="seleccionada.imagen" :alt="seleccionada.nombre">
+                <span>
+                  {{ seleccionada.nombre }}
+                </span>
+              </div>
             </div>
+            <span v-else>Select Someone</span>
             <img src="/imagenes/SVG/Selector.svg" alt="">
             </div>
             </ListboxButton>

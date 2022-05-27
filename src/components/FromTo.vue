@@ -3,6 +3,9 @@ import Dropdown from '../components/Dropdown.vue'
 import Input from '../components/Input.vue'
 import Badge from '../components/Badge.vue'
 import ListBox from '../components/ListBox.vue'
+import useUsers from '../composables/useUsers.js'
+
+const { personas } = useUsers()
 </script>
 
 <template>
@@ -25,25 +28,13 @@ import ListBox from '../components/ListBox.vue'
 
     <div id="Badges" class="grid w-full grid-cols-5 gap-2 mt-4">
         <span class="text-sm text-[#6E7C87] font-semibold uppercase">Mentions</span>
-        <Badge :data="{ nombre:'Daniel Rubiano', foto:'/imagenes/JPG/Daniel.jpg' }"/>
-        <Badge :data="{ nombre:'Daniela Lozano', foto:'/imagenes/JPG/Daniela.jpg' }"/>
-        <Badge :data="{ nombre:'Emmanuel Deossa', foto:'/imagenes/JPG/Emma.jpg' }"/>
-        <Badge :data="{ nombre:'Jairo Tulande', foto:'/imagenes/JPG/Jairo.jpg' }"/>
-        <Badge :data="{ nombre:'Jeisson Neira', foto:'/imagenes/JPG/Jeisson.jpg' }"/>
-        <Badge :data="{ nombre:'Jesus Francisco', foto:'/imagenes/JPG/Jesus.jpg' }"/>
-        <Badge :data="{ nombre:'Juan Torres', foto:'/imagenes/JPG/Juan.jpg' }"/>
-        <Badge :data="{ nombre:'Juliette Hernandez', foto:'/imagenes/JPG/Juliette.jpg' }"/>
-        <Badge :data="{ nombre:'Kattia Morales', foto:'/imagenes/JPG/Katt.jpg' }"/>
+        <Badge v-for="persona in personas" :key="persona" :data="persona"/>
     </div>
         <div class="flex justify-end mt-4">
             <button class="hover:bg-[#DC2E20] bg-[#EC3425] text-sm py-1 rounded-md  border-2 border-[#EC3425] text-white mr-3 w-[114px]">Save</button>
             <button class="hover:border-2 text-sm py-1 rounded-md  text-[#EC3425] border border-[#EC3425] w-[114px] font-medium">Cancel</button>
         </div>
 
-
-    <div>
-
-    </div>
 </div>
 
 

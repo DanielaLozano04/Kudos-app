@@ -1,3 +1,9 @@
+<script setup>
+import useUsers from "../composables/useUsers";
+
+const { kudos } = useUsers()
+</script>
+
 <template>
   <div class="bg-[#F6F8F9] px-6 py-4 ml-4 mr-8 mt-4 mb-4">
 
@@ -6,57 +12,20 @@
       </div>
 
       <div class="h-[20rem] overflow-y-auto">
-          <div class=" border rounded-md border-[#D1D5DB] bg-white px-6 py-4 mb-2">
-              <p class=" text-[#111827] font-normal text-sm">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremq laudantium, totam rem aperiam, eaque ipsa quae</p>
+          <div v-for="kudo in kudos" :key="kudo" class=" border rounded-md border-[#D1D5DB] bg-white px-6 py-4 mb-2">
+              <p class=" text-[#111827] font-normal text-sm">{{kudo.descripcion}}</p>
               <div class="flex justify-between">
                   <div class="flex w-1/2 pt-3">
-                      <img class="w-[25px] h-[25px] grid content-center rounded-full" src="/imagenes/JPG/Daniel.jpg" alt="Daniel">
+                      <img class="w-[25px] h-[25px] grid content-center rounded-full" :src="kudo.from.imagen" :alt="kudo.from.nombre">
                       <img class="p-[2px]" src="/imagenes/SVG/Arrow-narrow.svg" alt="Arrow">
-                      <img class="w-[25px] h-[25px] grid content-center rounded-full" src="/imagenes/JPG/Emma.jpg" alt="Emma">
+                      <img class="w-[25px] h-[25px] grid content-center rounded-full" :src="kudo.to.imagen" :alt="kudo.to.nombre">
                   </div>
-                  <div class="flex justify-end w-1/2 pt-3">
-                      <img class="w-[25px] h-[25px] grid content-center -mr-[2px] ring-2 ring-white rounded-full" src="/imagenes/JPG/Daniel.jpg" alt="Daniel">
-                      <img class="w-[25px] h-[25px] grid content-center -mr-[2px] ring-2 ring-white rounded-full" src="/imagenes/JPG/Emma.jpg" alt="Emma">
-                      <img class="w-[25px] h-[25px] grid content-center -mr-[2px] ring-2 ring-white rounded-full" src="/imagenes/JPG/Daniela.jpg" alt="Daniela">
-                      <img class="w-[25px] h-[25px] grid content-center -mr-[2px] ring-2 ring-white rounded-full" src="/imagenes/JPG/Daniel.jpg" alt="Daniel">
+                  <div  class="flex justify-end w-1/2 pt-3">
+                      <img v-for="mention in kudo.mentions" :key="mention" class="w-[25px] h-[25px] grid content-center -mr-[2px] ring-2 ring-white rounded-full" :src="mention.imagen" :alt="kudo.mentions">
                   </div>
               </div>
           </div>
 
-          <div class=" border rounded-md border-[#D1D5DB] bg-white px-6 py-4 mb-2">
-              <p class=" text-[#111827] font-normal text-sm">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremq laudantium, totam rem aperiam, eaque ipsa quae</p>
-              <div class="flex justify-between">
-                  <div class="flex w-1/2 pt-3">
-                      <img class="w-[25px] rounded-full h-[25px] grid content-center" src="/imagenes/JPG/Daniel.jpg" alt="Daniel">
-                      <img class="p-[2px]" src="/imagenes/SVG/Arrow-narrow.svg" alt="Arrow">
-                      <img class="w-[25px] rounded-full h-[25px] grid content-center" src="/imagenes/JPG/Emma.jpg" alt="Emma">
-                  </div>
-                  <div class="flex justify-end w-1/2 pt-3">
-                      <img class="w-[25px] h-[25px] grid content-center -mr-[2px] ring-2 ring-white rounded-full" src="/imagenes/JPG/Daniel.jpg" alt="Daniel">
-                      <img class="w-[25px] h-[25px] grid content-center -mr-[2px] ring-2 ring-white rounded-full" src="/imagenes/JPG/Emma.jpg" alt="Emma">
-                      <img class="w-[25px] h-[25px] grid content-center -mr-[2px] ring-2 ring-white rounded-full" src="/imagenes/JPG/Daniela.jpg" alt="Daniela">
-                      <img class="w-[25px] h-[25px] grid content-center -mr-[2px] ring-2 ring-white rounded-full" src="/imagenes/JPG/Daniel.jpg" alt="Daniel">
-                  </div>
-              </div>
-          </div>
-
-           <div class=" border rounded-md border-[#D1D5DB] bg-white px-6 py-4 mb-2">
-              <p class=" text-[#111827] font-normal text-sm">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremq laudantium, totam rem aperiam, eaque ipsa quae</p>
-              <div class="flex justify-between">
-                  <div class="flex w-1/2 pt-3">
-                      <img class="w-[25px] rounded-full h-[25px] grid content-center" src="/imagenes/JPG/Daniel.jpg" alt="Daniel">
-                      <img class="p-[2px]" src="/imagenes/SVG/Arrow-narrow.svg" alt="Arrow">
-                      <img class="w-[25px] rounded-full h-[25px] grid content-center" src="/imagenes/JPG/Emma.jpg" alt="Emma">
-                  </div>
-                  <div class="flex justify-end w-1/2 pt-3">
-
-                      <img class="w-[25px] h-[25px] grid content-center -mr-[2px] ring-2 ring-white rounded-full" src="/imagenes/JPG/Daniel.jpg" alt="Daniel">
-                      <img class="w-[25px] h-[25px] grid content-center -mr-[2px] ring-2 ring-white rounded-full" src="/imagenes/JPG/Emma.jpg" alt="Emma">
-                      <img class="w-[25px] h-[25px] grid content-center -mr-[2px] ring-2 ring-white rounded-full" src="/imagenes/JPG/Daniela.jpg" alt="Daniela">
-                      <img class="w-[25px] h-[25px] grid content-center -mr-[2px] ring-2 ring-white rounded-full" src="/imagenes/JPG/Daniel.jpg" alt="Daniel">
-                  </div>
-              </div>
-          </div>
       </div>
 
 

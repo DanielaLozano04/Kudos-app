@@ -1,6 +1,7 @@
 import { ref, computed } from 'vue'
 
 export default function useUsers(){
+
   const personas = ref([
     { nombre: "Daniel Rubiano", cargo: 'Video/Audio Specialist', imagen: "/imagenes/JPG/Daniel.jpg", kudos: 0, color:'#ff743f' },
     { nombre: "Daniela Lozano", cargo: 'Designer', imagen: "/imagenes/JPG/Daniela.jpg", kudos: 10, color:'#ed3746' },
@@ -12,6 +13,47 @@ export default function useUsers(){
     { nombre: "Juliette Hernandez", cargo: 'Junior Designer', imagen: "/imagenes/JPG/Juliette.jpg", kudos: 0, color:'#fe61b8' },
     { nombre:"Kattia Morales", cargo: 'Chief Hapiness Officer', imagen: "/imagenes/JPG/Katt.jpg", kudos: 0, color:'#d45bce' },
   ])
+  
+	const kudos =ref(
+		[
+			{
+				descripcion: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremq laudantium, totam rem aperiam, eaque ipsa quae",
+				from: personas.value[0],
+				to: personas.value[1],
+				mentions:
+				[
+					personas.value[1],
+					personas.value[2],
+					personas.value[3],
+					personas.value[4],
+				]
+			},
+			{
+				descripcion: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremq laudantium, totam rem aperiam, eaque ipsa quae",
+				from: personas.value[2],
+				to: personas.value[6],
+				mentions:
+				[
+					personas.value[0],
+					personas.value[6],
+					personas.value[8],
+					personas.value[5],
+				]
+			},
+			{
+				descripcion: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremq laudantium, totam rem aperiam, eaque ipsa quae",
+				from: personas.value[2],
+				to: personas.value[7],
+				mentions:
+				[
+					personas.value[6],
+					personas.value[2],
+					personas.value[0],
+					personas.value[1],
+				]
+			}
+		]
+	)
 
   const crearArrayDeUsuarios = () => {
     let newArray = []
@@ -50,6 +92,7 @@ export default function useUsers(){
     crearArrayDeUsuarios,
     crearArrayDeKudos,
     crearArrayDeColores,
-    sumaDeKudosTotales
+    sumaDeKudosTotales,
+		kudos,
   }
 }
