@@ -45,13 +45,12 @@ const { personas } = useUsers()
 						</td>
 						<td>
 							<div class="flex py-3 pl-6">
-								<img src="/imagenes/SVG/Heart.svg" alt="Heart">
-								<img src="/imagenes/SVG/Heart.svg" alt="Heart">
-								<img src="/imagenes/SVG/Heart.svg" alt="Heart">
+								<img v-for="n in persona.vidas" :key="n" src="/imagenes/SVG/Heart.svg" class="w-5 h-5" alt="Heart">
+								<img v-for="ns in (persona.kudosLimite - persona.vidas)" :key="ns" src="/imagenes/SVG/HeartOutLine.svg" class="w-5 h-5" alt="Heart Outline">
 							</div>
 						</td>
 						<td>
-							<span class="pl-6 py-3 text-[#6B7280] font-normal text-sm" >6 #Kudos</span>
+							<span class="pl-6 py-3 text-[#6B7280] font-normal text-sm" >{{ persona.kudos }} #Kudos</span>
 						</td>
 					</tr>
 				</tbody>
