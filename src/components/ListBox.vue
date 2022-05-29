@@ -14,7 +14,7 @@
 <template>
   <Listbox v-model="personaSeleccionada" :multiple="hasMultiple">
       <div class="relative">
-          <ListboxButton class="relative w-full  cursor-default rounded-md bg-white py-2 px-3 text-left shadow-md focus:outline-none border border-[#D1D5DB] focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm h-11">
+          <ListboxButton class="relative w-full  cursor-pointer rounded-md bg-white py-2 px-3 text-left shadow-md focus:outline-none border border-[#D1D5DB] focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm h-11">
             <div v-if="hasMultiple" class="flex justify-between" >
               <div v-if="personaSeleccionada.length > 0" class="w-full space-x-2 line-clamp-1">
               <div  v-for="(seleccionada, index) in personaSeleccionada" :key="index" class="inline-block">
@@ -47,7 +47,7 @@
         class="hover:bg-[#EAEAEA]"
         v-slot="{ active, selected }"
       >
-        <li class="flex items-center justify-between py-1">
+        <li class="flex items-center justify-between py-1 cursor-pointer">
           <div class="flex items-center">
             <img class="w-[25px] h-[25px] grid content-center ring-white rounded-full mr-2" :src="persona.imagen" alt="Daniel">
             <span>{{ persona.nombre }}</span>
