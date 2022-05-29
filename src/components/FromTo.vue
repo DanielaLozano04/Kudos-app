@@ -17,10 +17,10 @@ const { personas } = useUsers()
         </div>
         <div class="flex flex-col w-[75%]">
             <div class="mb-2">
-                <ListBox/>
+                <ListBox />
             </div>
             <div>
-                <ListBox/>
+                <ListBox multiple/>
             </div>
         </div>
     </div>

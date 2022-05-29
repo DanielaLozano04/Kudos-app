@@ -10,7 +10,7 @@ const { personas } = useUsers()
 		<div class="flex items-center pb-4 place-content-between">
 			<span class="text-sm text-[#6E7C87] font-semibold uppercase"> 🔥 iqthinkers</span>
 			<div>
-				<Modal/>
+				<!-- <Modal/> -->
 			</div>
 
 		</div>
