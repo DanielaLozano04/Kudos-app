@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+
 import {
   TransitionRoot,
   TransitionChild,
@@ -8,28 +8,16 @@ import {
   DialogTitle,
 } from '@headlessui/vue'
 
-const isOpen = ref(true)
+defineProps({
+    openModal: Boolean,
+  })
 
-function closeModal() {
-  isOpen.value = false
-}
-function openModal() {
-  isOpen.value = true
-}
+const emit = defineEmits(['submit', 'close'])
 </script>
 
 <template>
-  <div class="fixed inset-0 flex items-center justify-center">
-    <button 
-      type="button"
-      @click="openModal"
-      class="bg-white text-[10px] font-semibold text-[#6E7C87] rounded-md border border-[#D1D5DB] px-4 py-[4px]"
-    >
-      Add +
-    </button>
-  </div>
-  <TransitionRoot appear :show="isOpen" as="template">
-    <Dialog as="div" @close="closeModal" class="relative z-10">
+  <TransitionRoot appear :show="openModal" as="template">
+    <Dialog as="div" @close="emit('close')" class="relative z-10">
       <TransitionChild
         as="template"
         enter="duration-300 ease-out"
@@ -64,6 +52,7 @@ function openModal() {
                 class="mx-6 text-lg font-medium leading-6 text-[#111827]"
               >
                 🌟 ADD AN IQTHINKER
+                
               </DialogTitle>
 
                   <form class="py-5 px-6" >
@@ -106,7 +95,7 @@ function openModal() {
                   type="button"
                   class="inline-flex justify-center rounded-md border-transparent  px-4 py-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 hover:bg-[#DC2E20] 
                   bg-[#EC3425] border-2 border-[#EC3425] text-white w-full"
-                  @click="closeModal"
+                  @click="emit('submit')"
                 >
                   Welcome
                 </button>

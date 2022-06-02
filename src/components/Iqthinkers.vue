@@ -1,8 +1,14 @@
 <script setup>
 import useUsers from '../composables/useUsers.js'
 import Modal from '../components/Modal.vue'
+import { ref } from 'vue'
+
+const openIQThinkersModal = ref(false)
+
+const frutas=["manzana","pera","pina","mango"]
 
 const { personas } = useUsers()
+
 </script>
 
 <template>
@@ -10,7 +16,13 @@ const { personas } = useUsers()
 		<div class="flex items-center pb-4 place-content-between">
 			<span class="text-sm text-[#6E7C87] font-semibold uppercase"> 🔥 iqthinkers</span>
 			<div>
-				<Modal/>
+					<button 
+					type="button"
+					@click="openIQThinkersModal=true"
+					class="bg-white text-[10px] font-semibold text-[#6E7C87] rounded-md border border-[#D1D5DB] px-4 py-[4px]"
+					>
+					Add +
+					</button>
 			</div>
 
 		</div>
@@ -57,4 +69,9 @@ const { personas } = useUsers()
 			</table>
 		</div>
  </div>
+ <Modal 
+ 		:open-modal="openIQThinkersModal" 
+		@close="openIQThinkersModal = false" 
+		@submit="openIQThinkersModal = false"
+	/>
 </template>
