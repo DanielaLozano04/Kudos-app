@@ -45,7 +45,7 @@ function openModal() {
 
       <div class="fixed inset-0 overflow-y-auto">
         <div
-          class="flex min-h-full items-center justify-center p-4 text-center"
+          class="flex min-h-full items-center justify-center p-6 text-center"
         >
           <TransitionChild
             as="template"
@@ -61,12 +61,12 @@ function openModal() {
             >
               <DialogTitle
                 as="h3"
-                class="mx-4 text-lg font-medium leading-6 text-[#111827]"
+                class="mx-6 text-lg font-medium leading-6 text-[#111827]"
               >
                 🌟 ADD AN IQTHINKER
               </DialogTitle>
 
-                  <form class="py-5 px-4" >
+                  <form class="py-5 px-6" >
                     <div>
                         <label class="block text-sm font-semibold text-[#374151]"> Photo </label>
                         <div class="mt-1 flex items-center mb-6">
@@ -80,32 +80,32 @@ function openModal() {
                       </div>
 
                       <div class="mb-6">
-                        <label class="block text-[#374151] text-sm font-semibold mb-2" for="First name">
+                        <label class="block text-[#374151] text-sm font-semibold mb-1" for="First name">
                           First name
                         </label>
                         <input class=" appearance-none border border-[#D1D5DB] rounded w-full py-2 px-3 text-[#374151] leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" >
                       </div>
 
                       <div class="mb-6">
-                        <label class="block text-[#374151] text-sm font-semibold mb-2" for="username">
+                        <label class="block text-[#374151] text-sm font-semibold mb-1" for="username">
                           Last Name
                         </label>
                         <input class=" appearance-none border border-[#D1D5DB] rounded w-full py-2 px-3 text-[#374151] leading-tight focus:outline-none focus:shadow-outline" id="Last Name" type="text" >
                       </div>
 
                       <div class="mb-1">
-                        <label class="block text-[#374151] text-sm font-semibold mb-2" for="username">
+                        <label class="block text-[#374151] text-sm font-semibold mb-1" for="username">
                           Title
                         </label>
                         <input class=" appearance-none border border-[#D1D5DB] rounded w-full py-2 px-3 text-[#374151] leading-tight focus:outline-none focus:shadow-outline" id="Title" type="text" >
                       </div>                     
                 </form>
 
-              <div class="my-2 px-4">
+              <div class="my-2 px-6 mb-2">
                 <button
                   type="button"
                   class="inline-flex justify-center rounded-md border-transparent  px-4 py-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 hover:bg-[#DC2E20] 
-                  bg-[#EC3425] border-2 border-[#EC3425] text-white "
+                  bg-[#EC3425] border-2 border-[#EC3425] text-white w-full"
                   @click="closeModal"
                 >
                   Welcome
