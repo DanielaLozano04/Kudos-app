@@ -164,6 +164,12 @@ export default function useUsers(){
     return total
   })
 
+  const limpiarFormulario = () => {
+    kudosForm.value.descripcion = ''
+    kudosForm.value.to = []
+    kudosForm.value.mentions = []
+  }
+
   const agregarKudos = ()=>{
     // Voy a validar que tenga datos
     if(kudosForm.value.descripcion == ''){
@@ -191,6 +197,7 @@ export default function useUsers(){
 
     // se agrega a la lista de #KUDOS GOES TO...
     kudos.value.push({...kudosForm.value})
+    limpiarFormulario()
   }
 
   return {

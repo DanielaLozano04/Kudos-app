@@ -1,14 +1,22 @@
 <script setup>
-  import { ref, useAttrs  } from 'vue'
+  import { computed, useAttrs  } from 'vue'
   import { Listbox, ListboxButton, ListboxOptions, ListboxOption } from '@headlessui/vue'
-  import useUsers from '../composables/useUsers.js'
 
+  const props = defineProps(['modelValue','personas'])
+  const emit = defineEmits(['update:modelValue'])
 
-  const { personas } = useUsers()
   const attrs = useAttrs()
-
   const hasMultiple = typeof attrs.multiple != 'undefined' ? true : false
-  const personaSeleccionada = hasMultiple ? ref([]) : ref({ nombre: 'Select Someone', imagen: ''})
+
+  const personaSeleccionada = computed({
+  get() {
+    return props.modelValue
+  },
+  set(value) {
+    emit('update:modelValue', value)
+  }
+})
+
 </script>
 
 <template>

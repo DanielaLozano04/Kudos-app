@@ -17,10 +17,10 @@ const { personas, kudosForm, agregarKudos } = useUsers()
         </div>
         <div class="flex flex-col w-[75%]">
             <div class="mb-2">
-                <ListBox v-model="kudosForm.from" />
+                <ListBox v-model="kudosForm.from" :personas="personas"/>
             </div>
             <div>
-                <ListBox v-model="kudosForm.to" multiple/>
+                <ListBox v-model="kudosForm.to" :personas="personas" multiple/>
             </div>
         </div>
     </div>
