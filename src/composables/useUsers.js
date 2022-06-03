@@ -183,6 +183,10 @@ export default function useUsers(){
 
     kudosForm.value.from.vidas = kudosForm.value.from.vidas - 1
 
+    kudosForm.value.to.forEach((person) => {
+      person.kudos = person.kudos + 1
+    })
+
     kudos.value.push({...kudosForm.value})
   }
 
