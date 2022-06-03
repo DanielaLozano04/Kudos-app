@@ -12,13 +12,13 @@ const { kudos } = useUsers()
       </div>
 
       <div class="h-[20rem] overflow-y-auto">
-          <div v-for="kudo in kudos" :key="kudo" class=" border rounded-md border-[#D1D5DB] bg-white px-6 py-4 mb-2">
+          <div v-for="kudo in kudos.reverse()" :key="kudo" class=" border rounded-md border-[#D1D5DB] bg-white px-6 py-4 mb-2">
               <p class=" text-[#111827] font-normal text-sm">{{kudo.descripcion}}</p>
               <div class="flex justify-between">
                   <div class="flex w-1/2 pt-3">
                       <img class="w-[25px] h-[25px] grid content-center rounded-full" :src="kudo.from.imagen" :alt="kudo.from.nombre">
                       <img class="p-[2px]" src="/imagenes/SVG/Arrow-narrow.svg" alt="Arrow">
-                      <img class="w-[25px] h-[25px] grid content-center rounded-full" :src="kudo.to.imagen" :alt="kudo.to.nombre">
+                      <img v-for="(person, index) in kudo.to" :key="index" class="w-[25px] h-[25px] grid content-center rounded-full" :src="person.imagen" :alt="person.nombre">
                   </div>
                   <div  class="flex justify-end w-1/2 pt-3">
                       <img v-for="mention in kudo.mentions" :key="mention" class="w-[25px] h-[25px] grid content-center -mr-[2px] ring-2 ring-white rounded-full" :src="mention.imagen" :alt="kudo.mentions">

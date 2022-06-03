@@ -5,7 +5,7 @@ import Badge from '../components/Badge.vue'
 import ListBox from '../components/ListBox.vue'
 import useUsers from '../composables/useUsers.js'
 
-const { personas } = useUsers()
+const { personas, kudosForm, agregarKudos } = useUsers()
 </script>
 
 <template>
@@ -17,21 +17,21 @@ const { personas } = useUsers()
         </div>
         <div class="flex flex-col w-[75%]">
             <div class="mb-2">
-                <ListBox />
+                <ListBox v-model="kudosForm.from" />
             </div>
             <div>
-                <ListBox multiple/>
+                <ListBox v-model="kudosForm.to" multiple/>
             </div>
         </div>
     </div>
-    <Input/>
+    <Input v-model="kudosForm.descripcion" />
 
     <div id="Badges" class="grid w-full grid-cols-5 gap-2 mt-4">
         <span class="text-sm text-[#6E7C87] font-semibold uppercase">Mentions</span>
-        <Badge v-for="persona in personas" :key="persona" :data="persona"/>
+        <Badge v-for="persona in personas" :key="persona" :data="persona" v-model="kudosForm.mentions" />
     </div>
         <div class="flex justify-end mt-4">
-            <button class="hover:bg-[#DC2E20] bg-[#EC3425] text-sm py-1 rounded-md  border-2 border-[#EC3425] text-white mr-3 w-[114px]">Save</button>
+            <button class="hover:bg-[#DC2E20] bg-[#EC3425] text-sm py-1 rounded-md  border-2 border-[#EC3425] text-white mr-3 w-[114px]" @click="agregarKudos">Save</button>
             <button class="hover:border-2 text-sm py-1 rounded-md  text-[#EC3425] border border-[#EC3425] w-[114px] font-medium">Cancel</button>
         </div>
 
