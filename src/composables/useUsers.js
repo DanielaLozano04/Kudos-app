@@ -181,12 +181,15 @@ export default function useUsers(){
       return false
     }
 
+    // Se le resta un kudo a la persona que esta dando el kudo
     kudosForm.value.from.vidas = kudosForm.value.from.vidas - 1
 
+    // Se mira cuantas personas hay seleccionadas y se les suma 1 kudo a su contador global
     kudosForm.value.to.forEach((person) => {
       person.kudos = person.kudos + 1
     })
 
+    // se agrega a la lista de #KUDOS GOES TO...
     kudos.value.push({...kudosForm.value})
   }
 
