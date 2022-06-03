@@ -11,7 +11,7 @@ const { kudos } = useUsers()
        <span class="text-sm text-[#6E7C87] font-semibold uppercase">  🏆 #kudos goes To...</span>
       </div>
 
-      <div class="h-[20rem] overflow-y-auto">
+      <div v-if="kudos.length > 0" class="h-[20rem] overflow-y-auto">
           <div v-for="kudo in kudos.reverse()" :key="kudo" class=" border rounded-md border-[#D1D5DB] bg-white px-6 py-4 mb-2">
               <p class=" text-[#111827] font-normal text-sm">{{kudo.descripcion}}</p>
               <div class="flex justify-between">
@@ -25,9 +25,11 @@ const { kudos } = useUsers()
                   </div>
               </div>
           </div>
-
       </div>
-
-
+      <div v-else class="h-[20rem] overflow-y-auto">
+            <div class="flex items-center justify-center h-full">
+                <img src="/imagenes/SVG/empty-goesto.svg" alt="emty state">
+            </div>
+      </div>
  </div>
 </template>
