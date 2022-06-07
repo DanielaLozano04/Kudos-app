@@ -16,7 +16,7 @@ const personas = ref([
     imagen: "/imagenes/JPG/Daniela.jpg",
     kudosLimite: 3,
     vidas: 3,
-    kudos: 10,
+    kudos: 0,
     color:'#ed3746'
   },
   {
@@ -25,7 +25,7 @@ const personas = ref([
     imagen: "/imagenes/JPG/Emma.jpg",
     kudosLimite: 3,
     vidas: 3,
-    kudos: 6,
+    kudos: 0,
     color:'#272162'
   },
   {
@@ -43,7 +43,7 @@ const personas = ref([
     imagen: "/imagenes/JPG/Jeisson.jpg",
     kudosLimite: 3,
     vidas: 3,
-    kudos: 12,
+    kudos: 0,
     color:'#82cef8'
   },
   {
@@ -61,7 +61,7 @@ const personas = ref([
     imagen: "/imagenes/JPG/Juan.jpg",
     kudosLimite: 3,
     vidas: 3,
-    kudos: 3,
+    kudos: 0,
     color:'#1c70ea'
   },
   {
