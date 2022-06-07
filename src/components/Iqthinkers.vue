@@ -16,7 +16,7 @@ const { personas } = useUsers()
 		<div class="flex items-center pb-4 place-content-between">
 			<span class="text-sm text-[#6E7C87] font-semibold uppercase"> 🔥 iqthinkers</span>
 			<div>
-					<button 
+					<button
 					type="button"
 					@click="openIQThinkersModal=true"
 					class="bg-white text-[10px] font-semibold text-[#6E7C87] rounded-md border border-[#D1D5DB] px-4 py-[4px]"
@@ -69,9 +69,57 @@ const { personas } = useUsers()
 			</table>
 		</div>
  </div>
- <Modal 
- 		:open-modal="openIQThinkersModal" 
-		@close="openIQThinkersModal = false" 
-		@submit="openIQThinkersModal = false"
-	/>
+
+	<Modal
+		:open-modal="openIQThinkersModal"
+		@close="openIQThinkersModal = false"
+		title="🌟 ADD AN IQTHINKER"
+	>
+		<form class="px-6 py-5" >
+			<div>
+					<label class="block text-sm font-semibold text-[#374151]"> Photo </label>
+					<div class="flex items-center mt-1 mb-6">
+						<span class="inline-block w-12 h-12 overflow-hidden bg-gray-100 rounded-full">
+							<svg class="w-full h-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+								<path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+							</svg>
+						</span>
+						<button type="button" class="ml-4 bg-white py-1 px-2 border border-gray-300 rounded-md shadow-sm text-xs leading-4 font-medium text-[#374151] hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Change</button>
+					</div>
+				</div>
+
+				<div class="mb-6">
+					<label class="block text-[#374151] text-sm font-semibold mb-1" for="First name">
+						First name
+					</label>
+					<input class=" appearance-none border border-[#D1D5DB] rounded w-full py-2 px-3 text-[#374151] leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" >
+				</div>
+
+				<div class="mb-6">
+					<label class="block text-[#374151] text-sm font-semibold mb-1" for="username">
+						Last Name
+					</label>
+					<input class=" appearance-none border border-[#D1D5DB] rounded w-full py-2 px-3 text-[#374151] leading-tight focus:outline-none focus:shadow-outline" id="Last Name" type="text" >
+				</div>
+
+				<div class="mb-1">
+					<label class="block text-[#374151] text-sm font-semibold mb-1" for="username">
+						Title
+					</label>
+					<input class=" appearance-none border border-[#D1D5DB] rounded w-full py-2 px-3 text-[#374151] leading-tight focus:outline-none focus:shadow-outline" id="Title" type="text" >
+				</div>
+	</form>
+
+<div class="px-6 my-2 mb-2">
+	<button
+		type="button"
+		class="inline-flex justify-center rounded-md border-transparent  px-4 py-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 hover:bg-[#DC2E20]
+		bg-[#EC3425] border-2 border-[#EC3425] text-white w-full"
+		@click="emit('submit')"
+	>
+		Welcome
+	</button>
+</div>
+
+	</Modal>
 </template>
