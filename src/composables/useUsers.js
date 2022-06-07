@@ -94,6 +94,16 @@ export default function useUsers(){
     mentions:[]
   })
 
+  const newIQTHINKERSForm = ref({
+    nombre: "",
+    cargo: "",
+    imagen: "",
+    kudosLimite: 3,
+    vidas: 3,
+    kudos: 0,
+    color:'#000000'
+  })
+
   const crearArrayDeUsuarios = () => {
     let newArray = []
     personas.value.forEach(user => {
@@ -130,6 +140,13 @@ export default function useUsers(){
     kudosForm.value.descripcion = ''
     kudosForm.value.to = []
     kudosForm.value.mentions = []
+  }
+
+  const cancelarFormulario = () => {
+    if(!confirm("Deseas cancelar el registro del kudo?")) return true
+
+    kudosForm.value.from = { nombre: 'Select Someone', imagen: ''}
+    limpiarFormulario()
   }
 
   const agregarKudos = ()=>{
@@ -171,7 +188,6 @@ export default function useUsers(){
       return true
     })
 
-
     // Se le resta un kudo a la persona que esta dando el kudo
     kudosForm.value.from.vidas = kudosForm.value.from.vidas - 1
 
@@ -194,5 +210,7 @@ export default function useUsers(){
 		kudos,
     kudosForm,
     agregarKudos,
+    cancelarFormulario,
+    newIQTHINKERSForm,
   }
 }
