@@ -147,9 +147,6 @@ const { personas, newIQTHINKERSForm } = useUsers()
 
 					</div>
 				</div>
-					<pre>
-						{{ newIQTHINKERSForm }}
-					</pre>
 					<div class="mb-6">
 					<label class="block text-[#374151] text-sm font-semibold mb-1" for="photo-url">
 						Photo URL
