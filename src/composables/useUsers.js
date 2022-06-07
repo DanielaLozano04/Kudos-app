@@ -87,8 +87,6 @@ const kudos = ref([])
 
 export default function useUsers(){
 
-
-
   const kudosForm = ref({
     descripcion: '',
     from: { nombre: 'Select Someone', imagen: ''},
@@ -135,6 +133,12 @@ export default function useUsers(){
   }
 
   const agregarKudos = ()=>{
+
+    if(kudosForm.value.from.vidas <= 0) {
+      alert(`${kudosForm.value.from.nombre} ya no cuenta con vidas disponibles :(`)
+      return false
+    }
+
     // Voy a validar que tenga datos
     if(kudosForm.value.descripcion == ''){
       alert("Debes agregar una descripcion")
@@ -151,10 +155,22 @@ export default function useUsers(){
       return false
     }
 
-    if(kudosForm.value.from.vidas <= 0) {
-      alert(`${kudosForm.value.from.nombre} ya no cuenta con vidas disponibles :(`)
-      return false
-    }
+    // validar que el usuario que da kudos no se ingrese en from
+    kudosForm.value.to = kudosForm.value.to.filter(function(person){
+      if(person.nombre == kudosForm.value.from.nombre){
+        return false
+      }
+      return true
+    })
+
+    // validar que el usuario que da kudos no se ingrese en mentions
+    kudosForm.value.mentions = kudosForm.value.mentions.filter(function(person2){
+      if(person2.nombre == kudosForm.value.from.nombre){
+        return false
+      }
+      return true
+    })
+
 
     // Se le resta un kudo a la persona que esta dando el kudo
     kudosForm.value.from.vidas = kudosForm.value.from.vidas - 1
