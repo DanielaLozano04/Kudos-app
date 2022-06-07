@@ -1,7 +1,12 @@
 <script setup>
+import { computed } from "vue"
 import useUsers from "../composables/useUsers";
 
 const { kudos } = useUsers()
+
+const kudosReverse = computed(() => {
+    return kudos.value.reverse()
+})
 </script>
 
 <template>
@@ -11,8 +16,8 @@ const { kudos } = useUsers()
        <span class="text-sm text-[#6E7C87] font-semibold uppercase">  🏆 #kudos goes To...</span>
       </div>
 
-      <div v-if="kudos.length > 0" class="h-[20rem] overflow-y-auto">
-          <div v-for="kudo in kudos.reverse()" :key="kudo" class=" border rounded-md border-[#D1D5DB] bg-white px-6 py-4 mb-2">
+      <div v-if="kudosReverse.length > 0" class="h-[20rem] overflow-y-auto">
+          <div v-for="(kudo, index) in kudosReverse" :key="index" class=" border rounded-md border-[#D1D5DB] bg-white px-6 py-4 mb-2">
               <p class=" text-[#111827] font-normal text-sm">{{kudo.descripcion}}</p>
               <div class="flex justify-between">
                   <div class="flex w-1/2 pt-3">
@@ -21,7 +26,7 @@ const { kudos } = useUsers()
                       <img v-for="(person, index) in kudo.to" :key="index" class="w-[25px] h-[25px] grid content-center rounded-full" :src="person.imagen" :alt="person.nombre">
                   </div>
                   <div  class="flex justify-end w-1/2 pt-3">
-                      <img v-for="mention in kudo.mentions" :key="mention" class="w-[25px] h-[25px] grid content-center -mr-[2px] ring-2 ring-white rounded-full" :src="mention.imagen" :alt="kudo.mentions">
+                      <img v-for="(mention, index2) in kudo.mentions" :key="index2" class="w-[25px] h-[25px] grid content-center -mr-[2px] ring-2 ring-white rounded-full" :src="mention.imagen" :alt="kudo.mentions">
                   </div>
               </div>
           </div>
