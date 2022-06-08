@@ -117,7 +117,7 @@ const optionsMiddleware = () => {
 			</label>
 	  </div>
 
-		<div>
+		<div class="mb-4">
 			<label class="block text-sm font-regular text-[#374151] mb-2 mt-4 " for="grid-state">
 			To reset, please click on "Reset App"
 			</label>
@@ -175,14 +175,14 @@ const optionsMiddleware = () => {
 					<input v-model="newIQTHINKERSForm.nombre" class=" appearance-none border border-[#D1D5DB] rounded w-full py-2 px-3 text-[#374151] leading-tight focus:outline-none focus:shadow-outline" id="full-name" type="text" >
 				</div>
 
-				<div class="mb-1">
+				<div class="mb-6">
 					<label class="block text-[#374151] text-sm font-semibold mb-1" for="title">
 						Title
 					</label>
 					<input v-model="newIQTHINKERSForm.cargo" class=" appearance-none border border-[#D1D5DB] rounded w-full py-2 px-3 text-[#374151] leading-tight focus:outline-none focus:shadow-outline" id="title" type="text" >
 				</div>
 
-				<div class="mb-6">
+				<div class="mb-4">
 					<label class="block text-[#374151] text-sm font-semibold mb-1" for="profile-color">
 						Profile Color
 					</label>
