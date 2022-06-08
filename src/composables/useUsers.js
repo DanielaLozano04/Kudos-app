@@ -1,93 +1,22 @@
 import { ref, computed } from 'vue'
 
-const personas = ref([
-  {
-    nombre: "Daniel Rubiano",
-    cargo: 'Video/Audio Specialist',
-    imagen: "/imagenes/JPG/Daniel.jpg",
-    kudosLimite: 3,
-    vidas: 3,
-    kudos: 0,
-    color:'#ff743f'
-  },
-  {
-    nombre: "Daniela Lozano",
-    cargo: 'Designer',
-    imagen: "/imagenes/JPG/Daniela.jpg",
-    kudosLimite: 3,
-    vidas: 3,
-    kudos: 0,
-    color:'#ed3746'
-  },
-  {
-    nombre: "Emmanuel Deossa",
-    cargo: 'Lead Developer',
-    imagen: "/imagenes/JPG/Emma.jpg",
-    kudosLimite: 3,
-    vidas: 3,
-    kudos: 0,
-    color:'#272162'
-  },
-  {
-    nombre: "Jairo Tulande",
-    cargo: 'Business Development',
-    imagen: "/imagenes/JPG/Jairo.jpg",
-    kudosLimite: 3,
-    vidas: 3,
-    kudos: 0,
-    color:'#9340cc'
-  },
-  {
-    nombre: "Jeisson Neira",
-    cargo: 'The Chief',
-    imagen: "/imagenes/JPG/Jeisson.jpg",
-    kudosLimite: 3,
-    vidas: 3,
-    kudos: 0,
-    color:'#82cef8'
-  },
-  {
-    nombre: "Jesús Scarpetta",
-    cargo: 'Full-Stack Developer',
-    imagen: "/imagenes/JPG/Jesus.jpg",
-    kudosLimite: 3,
-    vidas: 3,
-    kudos: 0,
-    color:'#fffa6a'
-  },
-  {
-    nombre: "Juan Torres",
-    cargo: 'Lead Designer',
-    imagen: "/imagenes/JPG/Juan.jpg",
-    kudosLimite: 3,
-    vidas: 3,
-    kudos: 0,
-    color:'#1c70ea'
-  },
-  {
-    nombre: "Juliette Hernandez",
-    cargo: 'Junior Designer',
-    imagen: "/imagenes/JPG/Juliette.jpg",
-    kudosLimite: 3,
-    vidas: 3,
-    kudos: 0,
-    color:'#fe61b8'
-  },
-  { nombre:"Kattia Morales",
-    cargo: 'Chief Hapiness Officer',
-    imagen: "/imagenes/JPG/Katt.jpg",
-    kudosLimite: 3,
-    vidas: 3,
-    kudos: 0,
-    color:'#d45bce'
-  },
-])
+const personas = ref([])
 
 const kudos = ref([])
 
 export default function useUsers(){
 
+  const storageOptions = {
+    peopleStorageKey: "IQTHINKERS",
+    optionsStorageKey: "IQOptions",
+    kudosStorageKey: "kudos",
+  }
 
+  const loadingScreen = ref(true)
+
+  const appConfig = ref({
+    kudosLimite: 3
+  })
 
   const kudosForm = ref({
     descripcion: '',
@@ -95,6 +24,119 @@ export default function useUsers(){
     to: [],
     mentions:[]
   })
+
+  const newIQTHINKERSForm = ref({
+    nombre: "",
+    cargo: "",
+    imagen: "",
+    kudosLimite: 3,
+    vidas: 3,
+    kudos: 0,
+    color:'#000000'
+  })
+
+  const sumaDeKudosTotales = computed(() => {
+    let total = 0
+    personas.value.forEach(user => {
+      total += user.kudos
+    })
+    return total
+  })
+
+  const updateVidas = () => {
+    personas.value.forEach(function(person){
+      person.kudosLimite = parseInt(appConfig.value.kudosLimite)
+      person.vidas = parseInt(appConfig.value.kudosLimite)
+    })
+    savePeopleOnStorage()
+  }
+
+  const resetApp = () => {
+    if (!confirm("¿Desea eliminar los kudos y ajustes de la aplicación?")) return
+
+    let storageKeys = Object.values(storageOptions)
+    storageKeys.forEach(function(skeys){
+      localStorage.removeItem(skeys)
+    })
+    sessionStorage.removeItem(storageOptions.kudosStorageKey)
+    loadPeopleFromJson()
+  }
+
+  const loadPeopleFromStorageOrDefault = () => {
+    if ( localStorage.getItem(storageOptions.peopleStorageKey) ){
+      personas.value = JSON.parse(localStorage.getItem(storageOptions.peopleStorageKey))
+      return true
+    }
+    loadPeopleFromJson()
+  }
+
+  const loadPeopleFromJson = () => {
+    fetch('/personas_default.json').then(response => response.json())
+    .then(people => {
+      personas.value = people
+    })
+  }
+
+  const savePeopleOnStorage = () => {
+    localStorage.setItem(storageOptions.peopleStorageKey, JSON.stringify(personas.value))
+    return true
+  }
+
+  const loadKudosFromStorage = () => {
+    if(sessionStorage.getItem(storageOptions.kudosStorageKey)) {
+      kudos.value = JSON.parse(sessionStorage.getItem(storageOptions.kudosStorageKey))
+    }
+  }
+
+  const saveKudosOnSessionStorage = () => {
+    sessionStorage.setItem(storageOptions.kudosStorageKey, JSON.stringify(kudos.value))
+  }
+
+  const loadOptionsFromStorage = () => {
+    if(localStorage.getItem(storageOptions.optionsStorageKey)){
+      let carga = JSON.parse(localStorage.getItem(storageOptions.optionsStorageKey))
+      console.log(carga)
+      appConfig.value = carga
+      return true
+    }
+    return false
+  }
+
+  const saveOptionsOnStorage = () => {
+    localStorage.setItem(storageOptions.optionsStorageKey, JSON.stringify(appConfig.value))
+    return true
+  }
+
+  const saveOptions = () => {
+    if(appConfig.value.kudosLimite == personas.value[0].kudosLimite){
+      return false
+    }
+    updateVidas()
+    return saveOptionsOnStorage()
+  }
+
+  const configurandoApp = () => {
+      loadPeopleFromStorageOrDefault()
+      loadKudosFromStorage()
+
+
+
+    if(sessionStorage.getItem("showLoadingScreen")){
+      loadingScreen.value = false
+    }
+  }
+
+  const loadApp = () => {
+    loadOptionsFromStorage()
+    configurandoApp()
+
+    if(sessionStorage.getItem("showLoadingScreen")) return false
+    updateVidas()
+    setTimeout(function(){
+      loadingScreen.value = false
+      sessionStorage.setItem("showLoadingScreen", false)
+    },5000)
+  }
 
   const crearArrayDeUsuarios = () => {
     let newArray = []
@@ -120,21 +162,51 @@ export default function useUsers(){
     return newArray
   }
 
-  const sumaDeKudosTotales = computed(() => {
-    let total = 0
-    personas.value.forEach(user => {
-      total += user.kudos
-    })
-    return total
-  })
-
   const limpiarFormulario = () => {
     kudosForm.value.descripcion = ''
     kudosForm.value.to = []
     kudosForm.value.mentions = []
   }
 
+  const cleanAgregarIQTHINKERForm = () => {
+    newIQTHINKERSForm.value.nombre = ""
+    newIQTHINKERSForm.value.cargo = ""
+    newIQTHINKERSForm.value.imagen = ""
+    newIQTHINKERSForm.value.color = "#000000"
+    return true
+  }
+
+  const cancelarFormulario = () => {
+    if(!confirm("Deseas cancelar el registro del kudo?")) return true
+
+    kudosForm.value.from = { nombre: 'Select Someone', imagen: ''}
+    limpiarFormulario()
+  }
+
+  const agregarIQTHINKER = () => {
+    if(
+      newIQTHINKERSForm.value.imagen == '' ||
+      newIQTHINKERSForm.value.nombre == '' ||
+      newIQTHINKERSForm.value.cargo == ''
+     ) {
+       alert("Hay campos vacios por favor revisar.")
+       return false
+      }
+
+    personas.value.push({...newIQTHINKERSForm.value})
+    if(savePeopleOnStorage()){
+      return cleanAgregarIQTHINKERForm()
+    }
+    return false
+  }
+
   const agregarKudos = ()=>{
+
+    if(kudosForm.value.from.vidas <= 0) {
+      alert(`${kudosForm.value.from.nombre} ya no cuenta con vidas disponibles :(`)
+      return false
+    }
+
     // Voy a validar que tenga datos
     if(kudosForm.value.descripcion == ''){
       alert("Debes agregar una descripcion")
@@ -151,10 +223,26 @@ export default function useUsers(){
       return false
     }
 
-    if(kudosForm.value.from.vidas <= 0) {
-      alert(`${kudosForm.value.from.nombre} ya no cuenta con vidas disponibles :(`)
+    // validar que el usuario que da kudos no se ingrese en from
+    kudosForm.value.to = kudosForm.value.to.filter(function(person){
+      if(person.nombre == kudosForm.value.from.nombre){
+        return false
+      }
+      return true
+    })
+
+    if(kudosForm.value.to.length == 0){
+      alert(`${kudosForm.value.from.nombre} no se puede dar kudos a si mismo`)
       return false
     }
+
+    // validar que el usuario que da kudos no se ingrese en mentions
+    kudosForm.value.mentions = kudosForm.value.mentions.filter(function(person2){
+      if(person2.nombre == kudosForm.value.from.nombre){
+        return false
+      }
+      return true
+    })
 
     // Se le resta un kudo a la persona que esta dando el kudo
     kudosForm.value.from.vidas = kudosForm.value.from.vidas - 1
@@ -167,6 +255,10 @@ export default function useUsers(){
     // se agrega a la lista de #KUDOS GOES TO...
     kudos.value.push({...kudosForm.value})
     limpiarFormulario()
+
+    // se guardan las personas en el local storage
+    savePeopleOnStorage()
+    saveKudosOnSessionStorage()
   }
 
   return {
@@ -178,5 +270,13 @@ export default function useUsers(){
 		kudos,
     kudosForm,
     agregarKudos,
+    cancelarFormulario,
+    newIQTHINKERSForm,
+    agregarIQTHINKER,
+    loadingScreen,
+    loadApp,
+    resetApp,
+    appConfig,
+    saveOptions,
   }
 }

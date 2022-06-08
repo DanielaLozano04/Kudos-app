@@ -6,10 +6,20 @@ import { ref } from 'vue'
 const openIQThinkersModal = ref(false)
 const openOptionsIQThinkersModal = ref(false)
 
-const frutas=["manzana","pera","pina","mango"]
+const { personas, appConfig, saveOptions, newIQTHINKERSForm, agregarIQTHINKER, resetApp } = useUsers()
 
-const { personas } = useUsers()
 
+const IQTHINKERSMiddleware = () => {
+	if(agregarIQTHINKER()){
+		openIQThinkersModal.value = false
+	}
+}
+
+const optionsMiddleware = () => {
+	if(saveOptions()){
+		openOptionsIQThinkersModal.value = false
+	}
+}
 </script>
 
 <template>
@@ -17,7 +27,7 @@ const { personas } = useUsers()
 		<div class="flex items-center pb-4 place-content-between">
 			<span class="text-sm text-[#6E7C87] font-semibold uppercase"> 🔥 iqthinkers</span>
 			<div >
-					<button 
+					<button
 					type="button"
 					@click="openOptionsIQThinkersModal=true"
 					class="bg-white text-[10px] font-semibold text-[#6E7C87] rounded-md border border-[#D1D5DB] px-4 py-[4px] mr-2"
@@ -86,7 +96,7 @@ const { personas } = useUsers()
 		title="⚙️ Options"
 	>
 <form class="px-6 py-5" >
-		<div class="w-full  pr-3 mb-2 ">
+		<div class="w-full pr-3 mb-2 ">
 				<label class="block text-sm font-regular text-[#374151] mb-0.5 " for="grid-state">
 					Please select how many kudos you want.
 				</label>
@@ -99,9 +109,9 @@ const { personas } = useUsers()
 					</select>
 
 					<label for="grid-state">
-						<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 ">
-						<svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-			</div> 
+						<div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none ">
+						<svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+			</div>
 			</label>
 	  </div>
 
@@ -110,7 +120,8 @@ const { personas } = useUsers()
 			To reset, please click on "Reset App"
 			</label>
 			<button
-			class=" w-full hover:border-2 text-sm py-2  rounded-md  text-[#EC3425] border border-[#EC3425] font-medium">Reset App
+			@click="resetApp()"
+			class=" w-full hover:ring-1 hover:ring-[#EC3425] text-sm py-2  rounded-md  text-[#EC3425] border border-[#EC3425] font-medium">Reset App
 			</button>
 
 		</div>
@@ -122,13 +133,14 @@ const { personas } = useUsers()
 		type="button"
 		class="inline-flex justify-center rounded-md border-transparent  px-4 py-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 hover:bg-[#DC2E20]
 		bg-[#EC3425] border-2 border-[#EC3425] text-white w-full"
-		@click="emit('submit')"
+		@click="optionsMiddleware()"
 	>
 		Save
 	</button>
 </div>
 
 	</Modal>
+
 		<Modal
 		:open-modal="openIQThinkersModal"
 		@close="openIQThinkersModal = false"
@@ -139,40 +151,40 @@ const { personas } = useUsers()
 					<label class="block text-sm font-semibold text-[#374151]"> Photo </label>
 					<div class="flex items-center mt-1 mb-6">
 						<span class="inline-block w-12 h-12 overflow-hidden bg-gray-100 rounded-full">
-							<svg class="w-full h-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+							<img v-if="newIQTHINKERSForm.imagen != ''" :src="newIQTHINKERSForm.imagen" alt="IQTHINKERS IMAGE" class="w-full h-full">
+							<svg v-else class="w-full h-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
 								<path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
 							</svg>
 						</span>
 
 					</div>
 				</div>
-
 					<div class="mb-6">
-					<label class="block text-[#374151] text-sm font-semibold mb-1" for="Photo URL">
+					<label class="block text-[#374151] text-sm font-semibold mb-1" for="photo-url">
 						Photo URL
 					</label>
-					<input class=" appearance-none border border-[#D1D5DB] rounded w-full py-2 px-3 text-[#374151] leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" >
+					<input class="appearance-none border border-[#D1D5DB] rounded w-full py-2 px-3 text-[#374151] leading-tight focus:outline-none focus:shadow-outline" id="photo-url" type="text" v-model="newIQTHINKERSForm.imagen">
 				</div>
 
 				<div class="mb-6">
-					<label class="block text-[#374151] text-sm font-semibold mb-1" for="First name">
-						First name
+					<label class="block text-[#374151] text-sm font-semibold mb-1" for="full-name">
+						Full Name
 					</label>
-					<input class=" appearance-none border border-[#D1D5DB] rounded w-full py-2 px-3 text-[#374151] leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" >
-				</div>
-
-				<div class="mb-6">
-					<label class="block text-[#374151] text-sm font-semibold mb-1" for="username">
-						Last Name
-					</label>
-					<input class=" appearance-none border border-[#D1D5DB] rounded w-full py-2 px-3 text-[#374151] leading-tight focus:outline-none focus:shadow-outline" id="Last Name" type="text" >
+					<input v-model="newIQTHINKERSForm.nombre" class=" appearance-none border border-[#D1D5DB] rounded w-full py-2 px-3 text-[#374151] leading-tight focus:outline-none focus:shadow-outline" id="full-name" type="text" >
 				</div>
 
 				<div class="mb-1">
-					<label class="block text-[#374151] text-sm font-semibold mb-1" for="username">
+					<label class="block text-[#374151] text-sm font-semibold mb-1" for="title">
 						Title
 					</label>
-					<input class=" appearance-none border border-[#D1D5DB] rounded w-full py-2 px-3 text-[#374151] leading-tight focus:outline-none focus:shadow-outline" id="Title" type="text" >
+					<input v-model="newIQTHINKERSForm.cargo" class=" appearance-none border border-[#D1D5DB] rounded w-full py-2 px-3 text-[#374151] leading-tight focus:outline-none focus:shadow-outline" id="title" type="text" >
+				</div>
+
+				<div class="mb-6">
+					<label class="block text-[#374151] text-sm font-semibold mb-1" for="profile-color">
+						Profile Color
+					</label>
+					<input v-model="newIQTHINKERSForm.color" class=" appearance-none border border-[#D1D5DB] h-[38px] rounded w-full py-0 px-0 text-[#374151] leading-tight focus:outline-none focus:shadow-outline" id="profile-color" type="color" >
 				</div>
 	</form>
 
@@ -181,7 +193,7 @@ const { personas } = useUsers()
 		type="button"
 		class="inline-flex justify-center rounded-md border-transparent  px-4 py-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 hover:bg-[#DC2E20]
 		bg-[#EC3425] border-2 border-[#EC3425] text-white w-full"
-		@click="emit('submit')"
+		@click="IQTHINKERSMiddleware()"
 	>
 		Welcome
 	</button>
