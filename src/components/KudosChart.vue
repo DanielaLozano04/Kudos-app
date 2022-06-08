@@ -2,7 +2,6 @@
 import { Doughnut } from 'vue-chartjs'
 import { Chart as ChartJS, Legend,ArcElement, Tooltip, DoughnutController  } from 'chart.js'
 import useUsers from '../composables/useUsers.js'
-import { computed } from 'vue'
 
 ChartJS.register(Legend, ArcElement, Tooltip, DoughnutController )
 
@@ -11,8 +10,7 @@ const { users, sumaDeKudosTotales, crearArrayDeUsuarios, crearArrayDeKudos, crea
 const chartId = 'doughnut'
 
 
-const chartData = computed(() => {
-  return {
+const chartData = {
         labels: crearArrayDeUsuarios(),
         datasets: [
           {
@@ -21,7 +19,6 @@ const chartData = computed(() => {
           }
         ]
       }
-      })
 
 const chartOptions = {
   responsive: false,

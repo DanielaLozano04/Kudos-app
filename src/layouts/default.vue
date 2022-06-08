@@ -25,12 +25,12 @@ loadApp()
     </div>
   </div>
   <Menu/>
-  <main class="flex h-[calc(100vh-69px)] pt-5">
-    <section class="w-1/2">
+  <main class="flex flex-col md:flex-row h-[calc(100vh-69px)] pt-5">
+    <section class="w-full md:w-1/2 ">
         <KudosChart/>
         <Iqthinkers/>
     </section>
-    <section class="w-1/2">
+    <section class="w-full md:w-1/2">
         <FromTo/>
         <GoesTo/>
     </section>
