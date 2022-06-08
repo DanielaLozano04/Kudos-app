@@ -4,13 +4,11 @@ import Iqthinkers from '../components/Iqthinkers.vue'
 import GoesTo from '../components/GoesTo.vue'
 import KudosChart from '../components/KudosChart.vue'
 import FromTo from '../components/FromTo.vue'
-import { ref } from 'vue'
+import useUsers from '../composables/useUsers.js'
 
-const loadingScreen = ref(true)
+const { loadApp, loadingScreen } = useUsers()
 
-setTimeout(function(){
-  loadingScreen.value = false
-},3000)
+loadApp()
 
 </script>
 

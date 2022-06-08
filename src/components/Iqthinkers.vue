@@ -6,9 +6,20 @@ import { ref } from 'vue'
 const openIQThinkersModal = ref(false)
 const openOptionsIQThinkersModal = ref(false)
 
-const frutas=["manzana","pera","pina","mango"]
+const { personas, appConfig, saveOptions, newIQTHINKERSForm, agregarIQTHINKER, resetApp } = useUsers()
 
-const { personas, newIQTHINKERSForm } = useUsers()
+
+const IQTHINKERSMiddleware = () => {
+	if(agregarIQTHINKER()){
+		openIQThinkersModal.value = false
+	}
+}
+
+const optionsMiddleware = () => {
+	if(saveOptions()){
+		openOptionsIQThinkersModal.value = false
+	}
+}
 </script>
 
 <template>
@@ -91,10 +102,10 @@ const { personas, newIQTHINKERSForm } = useUsers()
 				</label>
 		</div>
 		<div class="relative text-gray-700 border">
-					<select class="block appearance-none w-full py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-[D1D5DB] relative  cursor-pointer rounded-md bg-white text-left shadow-md  border border-[#D1D5DB] focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 sm:text-sm h-11" id="grid-state">
-						<option>3 Kudos</option>
-						<option>6 Kudos</option>
-						<option>9 Kudos</option>
+					<select v-model="appConfig.kudosLimite" class="block appearance-none w-full py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-[D1D5DB] relative  cursor-pointer rounded-md bg-white text-left shadow-md  border border-[#D1D5DB] focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 sm:text-sm h-11" id="grid-state">
+						<option value="3">3 Kudos</option>
+						<option value="6">6 Kudos</option>
+						<option value="9">9 Kudos</option>
 					</select>
 
 					<label for="grid-state">
@@ -109,6 +120,7 @@ const { personas, newIQTHINKERSForm } = useUsers()
 			To reset, please click on "Reset App"
 			</label>
 			<button
+			@click="resetApp()"
 			class=" w-full hover:ring-1 hover:ring-[#EC3425] text-sm py-2  rounded-md  text-[#EC3425] border border-[#EC3425] font-medium">Reset App
 			</button>
 
@@ -121,7 +133,7 @@ const { personas, newIQTHINKERSForm } = useUsers()
 		type="button"
 		class="inline-flex justify-center rounded-md border-transparent  px-4 py-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 hover:bg-[#DC2E20]
 		bg-[#EC3425] border-2 border-[#EC3425] text-white w-full"
-		@click="emit('submit')"
+		@click="optionsMiddleware()"
 	>
 		Save
 	</button>
@@ -181,7 +193,7 @@ const { personas, newIQTHINKERSForm } = useUsers()
 		type="button"
 		class="inline-flex justify-center rounded-md border-transparent  px-4 py-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 hover:bg-[#DC2E20]
 		bg-[#EC3425] border-2 border-[#EC3425] text-white w-full"
-		@click="emit('submit')"
+		@click="IQTHINKERSMiddleware()"
 	>
 		Welcome
 	</button>
