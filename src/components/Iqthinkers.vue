@@ -92,7 +92,7 @@ const { personas } = useUsers()
 				</label>
 		</div>
 		<div class="relative border text-gray-700">
-					<select class="block appearance-none w-full py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-[D1D5DB] relative  cursor-pointer rounded-md bg-white text-left shadow-md  border border-[#D1D5DB] focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 sm:text-sm h-11" id="grid-state">
+					<select class="block appearance-none w-full py-1 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-[D1D5DB] relative  cursor-pointer rounded-md bg-white text-left shadow-md  border border-[#D1D5DB] focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 sm:text-sm h-11" id="grid-state">
 						<option>3 Kudos</option>
 						<option>6 Kudos</option>
 						<option>9 Kudos</option>
