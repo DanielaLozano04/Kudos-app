@@ -109,7 +109,7 @@ const { personas, newIQTHINKERSForm } = useUsers()
 			To reset, please click on "Reset App"
 			</label>
 			<button
-			class=" w-full hover:border-2 text-sm py-2  rounded-md  text-[#EC3425] border border-[#EC3425] font-medium">Reset App
+			class=" w-full hover:ring-1 hover:ring-[#EC3425] text-sm py-2  rounded-md  text-[#EC3425] border border-[#EC3425] font-medium">Reset App
 			</button>
 
 		</div>
