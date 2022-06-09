@@ -44,6 +44,7 @@ export default function useUsers(){
   })
 
   const updateVidas = () => {
+    console.log("se ejecuto actualizar las vidas y guardar en storage")
     personas.value.forEach(function(person){
       person.kudosLimite = parseInt(appConfig.value.kudosLimite)
       person.vidas = parseInt(appConfig.value.kudosLimite)
@@ -71,7 +72,8 @@ export default function useUsers(){
   }
 
   const loadPeopleFromJson = () => {
-    fetch('/personas_default.json').then(response => response.json())
+    fetch('/personas_default.json')
+    .then(response => response.json())
     .then(people => {
       personas.value = people
     })
@@ -131,6 +133,7 @@ export default function useUsers(){
     configurandoApp()
 
     if(sessionStorage.getItem("showLoadingScreen")) return false
+    console.log("Show loading screen is present.... updating live and show off loading screen")
     updateVidas()
     setTimeout(function(){
       loadingScreen.value = false
