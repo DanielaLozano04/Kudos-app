@@ -1,12 +1,25 @@
 <script setup>
 import { computed } from "vue"
 import useUsers from "../composables/useUsers";
+import useFileGenerator from "../composables/useFileGenerator";
 
 const { kudos } = useUsers()
+const { parse, generateBlobTxtFile, urlHref } = useFileGenerator()
 
 const kudosReverse = computed(() => {
     return kudos.value.reverse()
 })
+
+const generateDownloadFile = () => {
+    if(!confirm("Deseas descargar los kudos ingresados?")) return false
+    let texto = parse(kudos)
+
+    if(texto){
+        generateBlobTxtFile(texto)
+    }else{
+        alert("No se encontraron kudos en la lista :(")
+    }
+}
 </script>
 
 <template>
@@ -14,6 +27,7 @@ const kudosReverse = computed(() => {
 
       <div class="flex items-center pb-4 place-content-between">
        <span class="text-sm text-[#6E7C87] font-semibold uppercase">  🏆 #kudos goes To...</span>
+       <button class="bg-white text-[10px] font-semibold text-[#6E7C87] rounded-md border border-[#D1D5DB] px-4 py-[4px] mr-2" @click="generateDownloadFile">download</button>
       </div>
 
       <div v-if="kudosReverse.length > 0" class="h-[20rem] overflow-y-auto">
