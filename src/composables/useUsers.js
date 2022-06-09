@@ -9,6 +9,7 @@ export default function useUsers(){
   const storageOptions = {
     peopleStorageKey: "IQTHINKERS",
     optionsStorageKey: "IQOptions",
+    loadingScreenKey: "showLoadingScreen",
     kudosStorageKey: "kudos",
   }
 
@@ -44,7 +45,6 @@ export default function useUsers(){
   })
 
   const updateVidas = () => {
-    console.log("se ejecuto actualizar las vidas y guardar en storage")
     personas.value.forEach(function(person){
       person.kudosLimite = parseInt(appConfig.value.kudosLimite)
       person.vidas = parseInt(appConfig.value.kudosLimite)
@@ -57,15 +57,15 @@ export default function useUsers(){
 
     let storageKeys = Object.values(storageOptions)
     storageKeys.forEach(function(skeys){
-      localStorage.removeItem(skeys)
+      sessionStorage.removeItem(skeys)
     })
-    sessionStorage.removeItem(storageOptions.kudosStorageKey)
+    localStorage.removeItem(storageOptions.optionsStorageKey)
     loadPeopleFromJson()
   }
 
   const loadPeopleFromStorageOrDefault = () => {
-    if ( localStorage.getItem(storageOptions.peopleStorageKey) ){
-      personas.value = JSON.parse(localStorage.getItem(storageOptions.peopleStorageKey))
+    if ( sessionStorage.getItem(storageOptions.peopleStorageKey) ){
+      personas.value = JSON.parse(sessionStorage.getItem(storageOptions.peopleStorageKey))
       return true
     }
     loadPeopleFromJson()
@@ -80,7 +80,7 @@ export default function useUsers(){
   }
 
   const savePeopleOnStorage = () => {
-    localStorage.setItem(storageOptions.peopleStorageKey, JSON.stringify(personas.value))
+    sessionStorage.setItem(storageOptions.peopleStorageKey, JSON.stringify(personas.value))
     return true
   }
 
@@ -122,8 +122,7 @@ export default function useUsers(){
       loadKudosFromStorage()
 
 
-
-    if(sessionStorage.getItem("showLoadingScreen")){
+    if(sessionStorage.getItem(storageOptions.loadingScreenKey)){
       loadingScreen.value = false
     }
   }
@@ -132,12 +131,11 @@ export default function useUsers(){
     loadOptionsFromStorage()
     configurandoApp()
 
-    if(sessionStorage.getItem("showLoadingScreen")) return false
-    console.log("Show loading screen is present.... updating live and show off loading screen")
+    if(sessionStorage.getItem(storageOptions.loadingScreenKey)) return false
     updateVidas()
     setTimeout(function(){
       loadingScreen.value = false
-      sessionStorage.setItem("showLoadingScreen", false)
+      sessionStorage.setItem(storageOptions.loadingScreenKey, false)
     },5000)
   }
 
