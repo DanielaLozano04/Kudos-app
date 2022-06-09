@@ -7,7 +7,8 @@ const { kudos } = useUsers()
 const { parse, generateBlobTxtFile, urlHref } = useFileGenerator()
 
 const kudosReverse = computed(() => {
-    return kudos.value.reverse()
+    let newKudos = [...kudos.value]
+    return newKudos.reverse()
 })
 
 const generateDownloadFile = () => {
