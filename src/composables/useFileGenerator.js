@@ -22,7 +22,7 @@ export default function useFileGenerator(){
       let mentions = ''
 
       if(kudo.to.length > 1){
-        to = 'a las siguientes personas: '
+        to = 'a los siguientes IQTHINKERS: '
       }
 
       kudo.to.forEach((person, index)=>{
